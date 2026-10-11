@@ -1,4 +1,4 @@
-﻿import json
+import json
 import os
 import urllib.parse
 import urllib.request
@@ -163,12 +163,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b'Bot is running')
 
-def run():
+if __name__ == '__main__':
     port = int(os.environ.get('PORT', 10000))
     server_address = ('0.0.0.0', port)
     httpd = HTTPServer(server_address, RequestHandler)
     print(f"Starting server on port {port}...")
     httpd.serve_forever()
-
-if __name__ == '__main__':
-    run()
